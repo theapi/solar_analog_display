@@ -1,4 +1,6 @@
 /** 
+ *  Listens for the solar data via a UDP multicast.
+ *
  *  Uses the library from https://github.com/theapi/solar
  *  And https://github.com/theapi/denbit
  */
@@ -15,6 +17,12 @@
 #include <Denbit.h>
 // Initialize the denbit.
 Denbit denbit;
+
+#define METER_PIN_VCC         15 // D8
+#define METER_PIN_CHARGE_MV   13 // D7
+#define METER_PIN_CHARGE_MA   12 // D6
+#define METER_PIN_TEMPERATURE  5 // D1
+#define METER_PIN_LIGHT        4 // D2
 
 #define METER_MAX 840
 #define METER_3_4 630
@@ -33,17 +41,7 @@ char incomingPacket[255];  // buffer for incoming packets
 
 const byte DEBUG_LED = 16;
 
-int display_status = 0;
-
- 
-const long seconds_interval = 1000;
-unsigned long seconds_last = seconds_interval + 1;
-
-
-
-
 void setup() {
-
   Serial.begin(115200);
   
   // Start the Over The Air programming.
@@ -60,15 +58,20 @@ void setup() {
   
   pinMode(DEBUG_LED, OUTPUT);
   digitalWrite(DEBUG_LED, HIGH);  // LOW = ON
-  
+}
+
+/**
+ * Generate the pwm on the pin that's connected to the meter.
+ */
+void displayReading(uint16_t val, uint8_t pin) {
+  uint16_t pwm = round(METER_MV * (float)val);
+  Serial.print(pin); Serial.print(" : "); Serial.print(pwm); Serial.println();
+  analogWrite(pin, pwm);
 }
 
 void loop() {
-
-  
   // Check for any Over The Air updates.
   denbit.OTAhandle();
-
 
   // Check for udp data. 
   int packetSize = Udp.parsePacket();
@@ -97,27 +100,14 @@ void loop() {
         // Convert the temperature to a float.
         float deg = (float) rx_payload.getTemperature() / 10.0;
         Serial.println(deg);
-        
 
-        float vcc = METER_MV * rx_payload.getVcc();
-        // METER_MAX = 5000mv
-        uint16_t vcc_pwm = round(vcc);
-        Serial.print("  METER_MV: "); Serial.print(METER_MV); Serial.println();
-        Serial.print("  VCC: "); Serial.print(vcc); Serial.println();
-        Serial.print("  PWM_VCC: "); Serial.print(vcc_pwm); Serial.println();
-        analogWrite(13, vcc_pwm); // D7
+        displayReading(rx_payload.getVcc(), METER_PIN_VCC);
+        displayReading(rx_payload.getChargeMv(), METER_PIN_CHARGE_MV);
+        displayReading(rx_payload.getChargeMa(), METER_PIN_CHARGE_MA);
+        displayReading(rx_payload.getLight(), METER_PIN_LIGHT);
+        displayReading(deg, METER_PIN_TEMPERATURE);
 
         Serial.println();
-  
-  
-//        displayBlock(6, rx_payload.getChargeMa());
-//        displayBlock(4, rx_payload.getChargeMv());
-//        displayBlock(2, rx_payload.getVcc());
-//      
-//        displayBlockTemperature(5, deg);
-//        displayBlock(3, rx_payload.getMsgId());
-//        displayBlock(1, rx_payload.getLight());
-
       }
     }
   }
