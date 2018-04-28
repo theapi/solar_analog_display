@@ -26,14 +26,14 @@ Denbit denbit;
 #define METER_PIN_TEMPERATURE  5 // D1
 #define METER_PIN_LIGHT        4 // D2
 
-#define METER_MAX 840
-#define METER_3_4 630
-#define METER_HALF 420
-#define METER_1_4 210
+//#define METER_MAX 840
+//#define METER_3_4 630
+//#define METER_HALF 420
+//#define METER_1_4 210
 
-#define METER_MV 0.168F // METER_MAX / 5000
+#define METER_MV 0.16F // METER_MAX / 5000
 #define METER_MA 5.6F   // METER_MAX / 150
-#define METER_DEG 16.8F // METER_MAX / 50
+#define METER_DEG 16.8F // METER_MAX / 50 (actually -10 to 40)
 #define METER_LIGHT 0.7F // METER_MAX / 1200
 
 theapi::GardenPayload rx_payload = theapi::GardenPayload();
@@ -84,8 +84,9 @@ void displayMa(uint16_t val, uint8_t pin) {
 /**
  * Generate the pwm for the temperature reading.
  */
-void displayDeg(uint16_t val, uint8_t pin) {
-  uint16_t pwm = round(METER_DEG * (float)val);
+void displayDeg(float deg, uint8_t pin) {
+  deg = deg + 10; // The meter starts a -10
+  uint16_t pwm = round(METER_DEG * deg);
   analogWrite(pin, pwm);
 }
 

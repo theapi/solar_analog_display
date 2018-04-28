@@ -51,7 +51,7 @@
   </defs>
   <sodipodi:namedview
      showgrid="false"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer4"
      inkscape:document-units="mm"
      inkscape:cy="883.08682"
      inkscape:cx="194.02994"
@@ -101,7 +101,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -114,13 +114,13 @@
     <image
        sodipodi:absref="/home/peter/repos/solar_analog_display/assets/meter1.jpg"
        xlink:href="meter1.jpg"
-       transform="rotate(-90)"
-       width="184.67917"
-       height="246.32709"
-       preserveAspectRatio="none"
-       id="image104"
+       y="-15.818301"
        x="-236.63721"
-       y="-15.818301" />
+       id="image104"
+       preserveAspectRatio="none"
+       height="246.32709"
+       width="184.67917"
+       transform="rotate(-90)" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -131,13 +131,13 @@
     <image
        sodipodi:absref="/home/peter/repos/solar_analog_display/assets/meter2.jpg"
        xlink:href="meter2.jpg"
-       y="-2.8537169"
-       x="-227.1122"
-       id="image229"
-       preserveAspectRatio="none"
-       height="233.3625"
+       transform="rotate(-90)"
        width="175.15416"
-       transform="rotate(-90)" />
+       height="233.3625"
+       preserveAspectRatio="none"
+       id="image229"
+       x="-227.1122"
+       y="-2.8537169" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -170,7 +170,7 @@
          id="tspan4874"
          x="171.1411"
          y="33.40453"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.4083333px;font-family:Garuda;-inkscape-font-specification:Garuda;stroke-width:0.26458332">40</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.4083333px;font-family:Garuda;-inkscape-font-specification:Garuda;stroke-width:0.26458332">30</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:7.4083333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -182,50 +182,50 @@
          id="tspan4874-8"
          x="129.31111"
          y="84.433464"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.4083333px;font-family:Garuda;-inkscape-font-specification:Garuda;stroke-width:0.26458332">30</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.4083333px;font-family:Garuda;-inkscape-font-specification:Garuda;stroke-width:0.26458332">20</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:7.4083333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="67.182579"
-       y="122.59123"
+       x="70.4394"
+       y="120.58632"
        id="text4876-6-7"
-       transform="rotate(-11.61925)"><tspan
+       transform="rotate(-10.049858)"><tspan
          sodipodi:role="line"
          id="tspan4874-8-9"
-         x="67.182579"
-         y="122.59123"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.4083333px;font-family:Garuda;-inkscape-font-specification:Garuda;stroke-width:0.26458332">20</tspan><tspan
+         x="70.4394"
+         y="120.58632"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.4083333px;font-family:Garuda;-inkscape-font-specification:Garuda;stroke-width:0.26458332">10</tspan><tspan
          sodipodi:role="line"
-         x="67.182579"
-         y="131.85165"
+         x="70.4394"
+         y="129.84674"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.4083333px;font-family:Garuda;-inkscape-font-specification:Garuda;stroke-width:0.26458332"
          id="tspan881" /></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:7.4083333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="9.8505402"
-       y="133.57486"
+       x="11.634756"
+       y="132.84517"
        id="text4876-6-7-0"
        transform="rotate(-27.155584)"
        inkscape:transform-center-x="-1.7970489"
        inkscape:transform-center-y="-0.36215078"><tspan
          sodipodi:role="line"
-         x="9.8505402"
-         y="133.57486"
+         x="11.634756"
+         y="132.84517"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.4083333px;font-family:Garuda;-inkscape-font-specification:Garuda;stroke-width:0.26458332"
-         id="tspan883">10</tspan></text>
+         id="tspan883">0</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:7.4083333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="-48.328705"
-       y="129.33752"
+       x="-52.914207"
+       y="129.31218"
        id="text4876-6-7-0-3"
        transform="rotate(-43.469128)"><tspan
          sodipodi:role="line"
          id="tspan4874-8-9-3-3"
-         x="-48.328705"
-         y="129.33752"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.4083333px;font-family:Garuda;-inkscape-font-specification:Garuda;stroke-width:0.26458332">0</tspan></text>
+         x="-52.914207"
+         y="129.31218"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.4083333px;font-family:Garuda;-inkscape-font-specification:Garuda;stroke-width:0.26458332">-10</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:7.4083333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -237,7 +237,7 @@
          id="tspan4874-8-9-32"
          x="195.02211"
          y="-24.287434"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.4083333px;font-family:Garuda;-inkscape-font-specification:Garuda;stroke-width:0.26458332">50</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.4083333px;font-family:Garuda;-inkscape-font-specification:Garuda;stroke-width:0.26458332">40</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
