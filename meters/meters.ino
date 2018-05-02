@@ -32,9 +32,9 @@ Denbit denbit;
 //#define METER_1_4 210
 
 #define METER_MV 0.16F // METER_MAX / 5000
-#define METER_MA 5.6F   // METER_MAX / 150
+#define METER_MA 10.23F   // 1023 / 100
 #define METER_DEG 17.6F // 880 / 50 (actually -10 to 40)
-#define METER_LIGHT 0.7F // METER_MAX / 1200
+#define METER_LIGHT 0.225F // 900 / 4000
 
 theapi::GardenPayload rx_payload = theapi::GardenPayload();
 
