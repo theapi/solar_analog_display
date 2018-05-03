@@ -32,7 +32,7 @@ Denbit denbit;
 //#define METER_1_4 210
 
 #define METER_MV 0.16F // METER_MAX / 5000
-#define METER_MA 10.23F   // 1023 / 100
+#define METER_MA 7.0F   // 700 / 100
 #define METER_DEG 17.6F // 880 / 50 (actually -10 to 40)
 #define METER_LIGHT 0.225F // 900 / 4000
 
@@ -48,6 +48,7 @@ const byte DEBUG_LED = 16;
 
 void setup() {
   Serial.begin(115200);
+  analogWriteFreq(5000);
   
   // Start the Over The Air programming.
   denbit.OTAsetup();
