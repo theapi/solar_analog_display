@@ -26,12 +26,8 @@ Denbit denbit;
 #define METER_PIN_TEMPERATURE  5 // D1
 #define METER_PIN_LIGHT        4 // D2
 
-//#define METER_MAX 840
-//#define METER_3_4 630
-//#define METER_HALF 420
-//#define METER_1_4 210
-
-#define METER_MV 0.16F // METER_MAX / 5000
+#define METER_MV 0.17F // 850 / 5000
+#define METER_VCC 0.17F // 850 / 5000
 #define METER_MA 7.0F   // 700 / 100
 #define METER_DEG 17.6F // 880 / 50 (actually -10 to 40)
 #define METER_LIGHT 0.225F // 900 / 4000
@@ -71,6 +67,11 @@ void setup() {
  */
 void displayMv(uint16_t val, uint8_t pin) {
   uint16_t pwm = round(METER_MV * (float)val);
+  analogWrite(pin, pwm);
+}
+
+void displayVcc(uint16_t val, uint8_t pin) {
+  uint16_t pwm = round(METER_VCC * (float)val);
   analogWrite(pin, pwm);
 }
 
@@ -132,7 +133,7 @@ void loop() {
         float deg = (float) rx_payload.getTemperature() / 10.0;
         Serial.println(deg);
 
-        displayMv(rx_payload.getVcc(), METER_PIN_VCC);
+        displayVcc(rx_payload.getVcc(), METER_PIN_VCC);
         displayMv(rx_payload.getChargeMv(), METER_PIN_CHARGE_MV);
         displayMa(rx_payload.getChargeMa(), METER_PIN_CHARGE_MA);
         displayLight(rx_payload.getLight(), METER_PIN_LIGHT);
