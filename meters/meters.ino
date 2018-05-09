@@ -7,18 +7,13 @@
  *  And https://github.com/theapi/denbit
  */
 
-
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
+#include <ArduinoOTA.h>
 
-
+#include "config.h"
 #include "Payload.h"
 #include "GardenPayload.h"
-
-// Include the Denbit library.
-#include <Denbit.h>
-// Initialize the denbit.
-Denbit denbit;
 
 #define METER_PIN_VCC         15 // D8
 #define METER_PIN_CHARGE_MV   13 // D7
@@ -46,14 +41,27 @@ void setup() {
   Serial.begin(115200);
   analogWriteFreq(5000);
   
-  // Start the Over The Air programming.
-  denbit.OTAsetup();
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(wifi_ssid, wifi_password);
+  while (WiFi.waitForConnectResult() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
 
   Serial.println("");
   Serial.print("Connected to ");
   Serial.println(WiFi.SSID());
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
+
+  ArduinoOTA.setHostname(wifi_name);
+  ArduinoOTA.onError([](ota_error_t error) {
+    // Restart on failure.
+    ESP.restart();
+  });
+
+  // Start the Over The Air service.
+  ArduinoOTA.begin();
 
   Udp.beginMulticast(WiFi.localIP(), ipMulti, portMulti);
   Serial.printf("Now listening to IP %s, UDP port %d\n", ipMulti.toString().c_str(), portMulti);
@@ -103,7 +111,7 @@ void displayLight(uint16_t val, uint8_t pin) {
 
 void loop() {
   // Check for any Over The Air updates.
-  denbit.OTAhandle();
+  ArduinoOTA.handle();
 
   // Check for udp data. 
   int packetSize = Udp.parsePacket();
